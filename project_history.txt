@@ -1,0 +1,159 @@
+1 nmcli connection show
+2 dnf update -y
+3 dnf install -y kernel-devel gcc make perl elfutils-libelf-devel
+4 reboot
+5 dnf install -y virtualbox-guest-addition
+6 dnf install -y virtualbox-guest-additions
+7 dnf search virtualbox-guest
+8 dnf repolist
+9 mkdir -p /mnt/fedora_share
+10 vboxsf fedora_share /mnt/fedora_share
+11 mount -t vboxsf fedora_share /mnt/fedora_share
+12 cat /mt/fedora_share/cmd.txt
+13 nmcli connection modify "nmcli connection modify "Проводное подключение 1" id eth0
+14 nmcli connection modify "Проводное подключение 1" id eth0
+15 nmcli connection modify "Проводное подключение 1" ipv4.gateway 192.168.1.1
+16 nmcli connection modify "Проводное подключение 1" ipv4.method manual
+17 nmcli connection modify "Проводное подключение 1" ipv1.method manual
+ipv1.addresses 192.168.1.188/21
+18 nmcli comection modify "Проводное подключение 1" ipv4.gateway 192.168.1.1
+19 nmcli connection modify "Проводное подключение 1" ipv4.dns 8.8.8.8
+20 nmcli connection modify "Проводное подключение 1" ipv4.ignore-auto-dns yes
+21 systemctl restart NetworkManager
+22 ip addr show enp8s8
+23 hostnamect1 set-hostname mephi-2026.domain.local
+24 hostname
+25 pig -c 4 8.8.8.8 > /tmp/network_check.txt
+26 ping -c 4 8.8.8.8 > /tmp/network_check.txt
+27 ping -c 4 192.168.1.1 >> /tmp/network_check.txt
+28 cat /tmp/network_check.txt
+29 dnf install -y nginx tcpdump libcap-ng-utils
+30 cd /tmp
+31 dnf download tcpdump
+32 Is -la tcpdump*.rpm
+33 rpm -ivh tcpdump-*.rpm --force
+34 rpm -qi tepdump head -5
+35 lsblk
+36 shutdown -h now
+37 df -h /data/mephi-web
+38 systemctl start nginx
+39 systemctl enable nginx
+40 systemctl status nginx
+U
+41 journalctl -u nginx --since "5 minutes ago" > /tmp/nginx_recent_logs.txt
+12 cat /tmp/nginx_recent_logs.txt
+43 useradd mephi-admin
+44 echo "Pessw0rd2026" passud --stdin mephi-admin
+45 groupadd mephi-devs
+16 usermod -aG mephi-devs mephi-admin
+47 chowm mephi-admin:mephi-devs /data/mephi-web
+48 chmod 2775 /data/mephi-web
+49 Is -1d /data/mephi-web
+50 chmod g+s /data/mephi-web
+51 Is -1d /data/mephi-web
+52 getenforce
+53 dnf install -y policycoreutils-python-utils
+54 semanage fcontext -a -t httpd_sys_content_t "/data/mephi-web(/.x)?"
+55 restorecon -Rv /data/mephi-web
+56 Is -Z /data/mephi-web
+57 chmod u-s /usr/sbin/tcpdump
+58 setcap cap_net_raw, cap_net_admin+ep /usr/sbin/tcpdump
+59 getcap /usr/sbin/tcpdump
+60 setcap cap_net_raw, cap_net_admin+ep /usr/sbin/tcpdump
+61 setcap cap_net_raw,cap_net_admin+ep /usr/sbin/tcpdump
+62 getcap /usr/sbin/tcpdump
+63 su - mephi-admin -c "tcpdump --help"
+64 echo "root" > /etc/ssh/denied_users
+65 sed -i "1i auth required pam_listfile.so item=user sense=deny file=/etc/shh/denied_users
+66 sed -i "1i auth required pam_listfile.so
+onerr=succeed" item-user sense=deny file=/etc/ssh/denied_users onerr=succeed"
+67 cat /etc/pam.d/login head -3
+68 cat /etc/pam.d/sshd | head -3
+69 sed -i 'si/etc/shh/denied_users|/etc/shh/denied_usersig'
+70 sed -i "si/etc/shh/denied_users|/etc/ssh/denied_usersig"
+71 sed -i 'si/etc/shh/denied_users|/etc/ssh/denied_usersig'/etc/pam.d/login
+72 sed -i 'si/etc/shh/denied_users|/etc/ssh/denied_usersig'/etc/pam.d/sshd
+73 grep denied_users /etc/pam.d/login
+74 grep denied_users /etc/pam.d/sshd
+75 cat /etc/ssh/denied_users
+76 reboot
+77 whoami
+78 mkdir -p /root/project_artifacts
+79 cd /root/project_artifacts
+80 pwd
+81 cp /tmp/network_check.txt
+.
+82 Is -1 /tmp/network_check.txt
+83 ping -c 4 8.8.8.8 > /tmp/network_check.txt
+84 ping -c 4 192.168.1.1 >> /tmp/network_check.txt
+85 cat /tmp/network_check.txt
+86 cp /tmp/network_check.txt/root/project_artifacts/
+87 pud
+88 1s -1 /root/project_artifacts/network_check.txt
+89 journalctl -u nginx --since "5 minutes ago" > nginx_recent_logs.txt
+90 Is -1 nginx_recent_logs.txt
+91 cp /etc/fstab fstab.txt
+92 head -2 fstab.txt
+93 getenforce > selinux_status.txt
+94 cat selinux_status.txt
+95 Is -Zd /data/mephi-web > file_context.txt
+96 Is - Zd /data/mephi-web > file_contexts.txt
+97 Is -Zd /data/mephi-web > file_contexts.txt
+98 cat file_contexts.txt
+99 getcap /usr/sbin/tcpdump > tcpdump_capabilities.txt
+100 cat tcpdump_capabilities.txt
+101 stat /data/mephi-web > permissions.txt
+102 wc -1 permissions.txt
+103 id mephi-admin > users_groups.txt
+104 getent group mephi-devs >> users_groups.txt
+105 cat users_groups.txt
+106 cp /data/mephi-web/index.html .
+107 echo "Hello from Student: 2551015" > /data/mephi-web/index.html
+108 cat /data/mephi-web/index.html
+189 cp /data/mephi-web/index.html .
+110 Is -1 index.html
+111 cat curl_output.txt
+112 history > project_history.txt
+113 Is -1h project_history.txt
+114 cp/tmp/tcpdump-x.rpm tcpdump.rpm
+115 cd /tmp
+116 dnf download tcpdump
+117 ping -c 2 8.8.8.8
+118 curl http://192.168.1.100
+119 nano /etc/nginx/nginx.conf
+120 vi /etc/nginx/nginx.conf
+121 nginx -t
+122 systemctl reload nginx
+123 curl http://192.168.1.100
+124 cat /rootproject_artifacts/network_check.txt
+125 ls -la /root/project_artifacts
+126 ,pck-=drg.j9-i-grvl
+127 Is -la /root/project_artifact
+128 Is -la /root/project_artifacts
+129 Is /mnt/fedora_share
+130 cat /root/project_artifacts/network_check.txt
+131 cat /root/project_artifacts/nginx_recent_logs.txt
+132 cat /root/project_artifacts/fstab.txt
+133 getenforce > /root/project_artifacts/selinux_status.txt
+134 cat /root/project_artifacts/selinux_status.txt
+135 cat/root/project_artifacts/file_contexts.txt
+136 cat/root/project_artifacts/tcpdump_capabilities.txt
+137 cat/root/project_artifacts/permissions.txt
+138 cat /root/project_artifacts/user_groups.txt
+139 cat /root/project_artifacts/users_group.txt
+140 id mephi-admin > users_groups.txt
+141 getent group mephi-devs >> users_groups.txt
+142 cat/root/project_artifacts/users_groups.txt
+143 cat /root/project_artifacts/index.html
+144 cat /root/project_artifacts/curl_output.txt
+145 shutdown -h now
+146 ping -c 2 8.8.8.8
+147 dnf install -y git
+148 curl http://192.168.1.100
+149 curl -s http://192.168.1.100 > /root/project_artifacts/curl_output.txt
+150 cat /root/project_artifacts/curl_output.txt
+151 history > /roort/project_artifacts/project_history.txt
+152 cat/root/project_artifacts/project_history.txt
+153 echo "RPM not due to network issues" > tcpdump.rpm
+154 dnf download tepdump
+155 history > /root/project_artifacts/project_history_full.txt
